@@ -4,7 +4,7 @@ streamings = [
         "location_name": "EBC 東森新聞",
         "latitude": null,
         "longitude": null,
-        "selected": true,
+        "selected": false,
         "url": "https://www.youtube.com/watch?v=RaIJ767Bj_M",
         "youtube_id": "RaIJ767Bj_M"
     },
@@ -22,7 +22,7 @@ streamings = [
         "location_name": "三立LIVE新聞HD直播",
         "latitude": null,
         "longitude": null,
-        "selected": true,
+        "selected": false,
         "url": "https://www.youtube.com/watch?v=4ZVUmEUFwaY",
         "youtube_id": "4ZVUmEUFwaY"
     },
@@ -31,7 +31,7 @@ streamings = [
         "location_name": "The Good Life Radio",
         "latitude": null,
         "longitude": null,
-        "selected": true,
+        "selected": false,
         "url": "https://www.youtube.com/watch?v=36YnV9STBqc",
         "youtube_id": "36YnV9STBqc"
     },

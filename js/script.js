@@ -1,3 +1,4 @@
+var selectOptionNumber = 4;
 $(document).ready(function() {
     $('#video_multiselect').multiselect({
         buttonWidth: '250px',
@@ -9,6 +10,30 @@ $(document).ready(function() {
                 appendStreaming(streaming);
             } else {
                 removeStreaming(id);
+            }
+
+            // Get selected options.
+            var selectedOptions = $('#video_multiselect option:selected');
+ 
+            if (selectedOptions.length >= selectOptionNumber) {
+                // Disable all other checkboxes.
+                var nonSelectedOptions = $('#video_multiselect option').filter(function() {
+                    return !$(this).is(':selected');
+                });
+
+                nonSelectedOptions.each(function() {
+                    var input = $('input[value="' + $(this).val() + '"]');
+                    input.prop('disabled', true);
+                    input.closest('li').addClass('disabled');
+                });
+            }
+            else {
+                // Enable all checkboxes.
+                $('#video_multiselect option').each(function() {
+                    var input = $('input[value="' + $(this).val() + '"]');
+                    input.prop('disabled', false);
+                    input.closest('li').removeClass('disabled');
+                });
             }
         }
     });
