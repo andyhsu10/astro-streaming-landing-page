@@ -23,7 +23,7 @@ const streamings = [
     {
         "id": 4,
         "location_name": "2016年3月9日日偏食直播(中央氣象局)",
-        "selected": false,
+        "selected": true,
         "url": "https://www.youtube.com/watch?v=jOBeiuh30wE",
         "youtube_id": "jOBeiuh30wE"
     },
@@ -37,14 +37,14 @@ const streamings = [
     {
         "id": 6,
         "location_name": "C/2014 Q2 (Lovejoy)彗星",
-        "selected": false,
+        "selected": true,
         "url": "https://www.youtube.com/watch?v=GwC3Qt6ceU4",
         "youtube_id": "GwC3Qt6ceU4"
     },
     {
         "id": 7,
         "location_name": "2011年6月16日月全食(望遠鏡直焦)",
-        "selected": false,
+        "selected": true,
         "url": "https://www.youtube.com/watch?v=aqevf_QFlQ8",
         "youtube_id": "aqevf_QFlQ8"
     },
@@ -54,5 +54,19 @@ const streamings = [
         "selected": false,
         "url": "https://www.youtube.com/watch?v=JvrLS4JDTr0",
         "youtube_id": "JvrLS4JDTr0"
+    },
+    {
+        "id": 9,
+        "location_name": "2020/06/09 天氣播報",
+        "selected": true,
+        "url": "https://www.youtube.com/watch?v=tXlmbIAI1UQ",
+        "youtube_id": "tXlmbIAI1UQ"
+    },
+    {
+        "id": 10,
+        "location_name": "2020/06/08 天氣播報",
+        "selected": false,
+        "url": "https://www.youtube.com/watch?v=Pcsesi-RbZA",
+        "youtube_id": "Pcsesi-RbZA"
     },
 ]
