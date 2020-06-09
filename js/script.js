@@ -86,7 +86,7 @@ function setSelectOptionNumber() {
         if (selectOptionNumber == 9) {
             mobileStreamings()
         }
-        selectOptionNumber = 2
+        selectOptionNumber = 3
     }
     disableOptions();
 }
