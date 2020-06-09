@@ -58,7 +58,11 @@ $(document).ready(function() {
                         labels.push($(this).html());
                     }
                 });
-                return labels.join(', ') + '';
+                label_str = labels.join(', ') + '';
+                if (label_str.length > 15) {
+                    return label_str.slice(0, 15) + ' ......'
+                }
+                return label_str
              }
         }
     });
