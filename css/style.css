@@ -15,6 +15,10 @@ li.disabled > a > label > input {
     cursor: not-allowed;
 }
 
+table th, table td {
+    text-align: center;
+}
+
 footer {
     background-color: #ecf3fc;
     padding: 3rem 0;
@@ -29,6 +33,11 @@ footer .row .col-3 {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+}
+
+footer .credit {
+    font-size: 0.8rem;
+    color: #24292e;
 }
 
 .bg-black {
@@ -76,6 +85,10 @@ footer .row .col-3 {
     align-items: center;
 }
 
+.countdown-time {
+    font-family: 'consolas', 'courier';
+}
+
 #country_div {
     display: inline-block;
     margin-bottom: 0;
@@ -102,6 +115,12 @@ footer .row .col-3 {
     border-radius: 3px;
     font-size: 1.1rem;
 	display: inline-block;
+}
+
+#countdown_help {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.6rem !important;
 }
 
 #event_name {

@@ -15,17 +15,13 @@
     <link rel="shortcut icon" href="favicon.png">
 
     <!-- Bootstrap core CSS-->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <!--<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Multiselect CSS-->
-    <link rel="stylesheet" href="css/bootstrap-multiselect.css">
+    <link rel="stylesheet" href="css/bootstrap-multiselect.min.css">
 
     <!-- Custom CSS-->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.min.css" rel="stylesheet">
 
 </head>
 
@@ -35,29 +31,33 @@
             <img class="img-fluid mr-2" style="height: 50px;" src="img/solar-eclipse.jpg"/>
             2020 年夏至日環食網路聯播
         </a>
-        <div class="event-countdown fluid-right">
+        <div class="event-countdown">
             <div class="btn-secondary form-group mr-2" id="country_div">
                 <select class="form-control" id="country_selection"></select>
             </div>
 
             <div id="countdown_div">
                 <div class="mr-1">
-                    距離<span id="event_name"></span><br><span id="event_time"></span>
+                    距離
+                    <span id="event_name"></span>
+                    <span id="countdown_help" data-toggle="modal" data-target="#countdownHelpModal">[?]</span>
+                    <br>
+                    <span id="event_time"></span>
                 </div>
                 <div id="event_days_div">
-                  <span id="event_days">00</span>
+                  <span class="countdown-time" id="event_days">00</span>
                   <div class="smalltext">天</div>
                 </div>
                 <div id="event_hours_div">
-                  <span id="event_hours">00</span>
+                  <span class="countdown-time" id="event_hours">00</span>
                   <div class="smalltext">時</div>
                 </div>
                 <div id="event_minutes_div">
-                  <span id="event_minutes">00</span>
+                  <span class="countdown-time" id="event_minutes">00</span>
                   <div class="smalltext">分</div>
                 </div>
                 <div id="event_seconds_div">
-                  <span id="event_seconds">00</span>
+                  <span class="countdown-time" id="event_seconds">00</span>
                   <div class="smalltext">秒</div>
                 </div>
               </div>
@@ -81,8 +81,7 @@
         <!-- /.container-fluid-->
     </div>
     <!-- /.content-wrapper-->
-    
-    
+
 	<!-- Footer -->
     <footer class="mt-4">
         <div class="container">
@@ -108,28 +107,241 @@
                     </a>
                 </div>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <p class="text-center mt-3 credit">Designed by An-Ting Hsu.</p>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Bootstrap core JavaScript-->
-    <!--<script src="js/jquery.min.js"></script>-->
-    <!--<script src="js/bootstrap.bundle.min.js"></script>-->
-    
-    <!-- Core plugin JavaScript-->
-    <!--<script src="js/jquery.easing.min.js"></script>-->
+    <!-- Modal -->
+    <div class="modal fade" id="countdownHelpModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">2020-06-21 各地日環食時刻表</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+                <div class="modal-body">
+                    <ul>
+                        <li><b>觀測及攝影時須加裝適當的濾光裝置。</b></li>
+                        <li>臺灣標準時間TST，UTC +08:00。</li>
+                        <li>下列縣市地點以中央氣象局氣象站所在地為準，部分縣市則以該縣市消防局之經緯度為準。</li>
+                        <li>除金門縣、嘉義縣、嘉義市及雲林縣中南部外，於澎湖縣北部、臺南市北部、高雄市東北部、南投縣南部、花蓮縣南部、臺東縣北部亦均可見日面呈環食現象。</li>
+                    </ul>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>縣市名稱</th>
+                                    <th>初虧</th>
+                                    <th>食既</th>
+                                    <th>食甚</th>
+                                    <th>生光</th>
+                                    <th>復圓</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>臺北市</td>
+                                    <td>14:49:57</td>
+                                    <td>-</td>
+                                    <td>16:13:28</td>
+                                    <td>-</td>
+                                    <td>17:24:26</td>
+                                </tr>
+                                <tr>
+                                    <td>新北市</td>
+                                    <td>14:50:02</td>
+                                    <td>-</td>
+                                    <td>16:13:34</td>
+                                    <td>-</td>
+                                    <td>17:24:31</td>
+                                </tr>
+                                <tr>
+                                    <td>桃園市</td>
+                                    <td>14:49:05</td>
+                                    <td>-</td>
+                                    <td>16:13:05</td>
+                                    <td>-</td>
+                                    <td>17:24:23</td>
+                                </tr>
+                                <tr>
+                                    <td>新竹縣</td>
+                                    <td>14:49:11</td>
+                                    <td>-</td>
+                                    <td>16:13:15</td>
+                                    <td>-</td>
+                                    <td>17:24:34</td>
+                                </tr>
+                                <tr>
+                                    <td>新竹市</td>
+                                    <td>14:49:05</td>
+                                    <td>-</td>
+                                    <td>16:13:13</td>
+                                    <td>-</td>
+                                    <td>17:24:35</td>
+                                </tr>
+                                <tr>
+                                    <td>苗栗縣</td>
+                                    <td>14:49:05</td>
+                                    <td>-</td>
+                                    <td>16:13:22</td>
+                                    <td>-</td>
+                                    <td>17:24:49</td>
+                                </tr>
+                                <tr>
+                                    <td>臺中市</td>
+                                    <td>14:49:09</td>
+                                    <td>-</td>
+                                    <td>16:13:41</td>
+                                    <td>-</td>
+                                    <td>17:25:14</td>
+                                </tr>
+                                <tr>
+                                    <td>彰化縣</td>
+                                    <td>14:49:13</td>
+                                    <td>-</td>
+                                    <td>16:13:53</td>
+                                    <td>-</td>
+                                    <td>17:25:30</td>
+                                </tr>
+                                <tr>
+                                    <td>南投縣</td>
+                                    <td>14:49:51</td>
+                                    <td>-</td>
+                                    <td>16:14:11</td>
+                                    <td>-</td>
+                                    <td>17:25:34</td>
+                                </tr>
+                                <tr>
+                                    <td>雲林縣</td>
+                                    <td>14:49:23</td>
+                                    <td>16:13:55</td>
+                                    <td>16:14:06</td>
+                                    <td>16:14:20</td>
+                                    <td>17:25:44</tr>
+                                <tr>
+                                    <td>嘉義縣</td>
+                                    <td>14:49:03</td>
+                                    <td>16:13:38</td>
+                                    <td>16:14:03</td>
+                                    <td>16:14:30</td>
+                                    <td>17:25:51</tr>
+                                <tr>
+                                    <td>嘉義市</td>
+                                    <td>14:49:17</td>
+                                    <td>16:13:40</td>
+                                    <td>16:14:08</td>
+                                    <td>16:14:38</td>
+                                    <td>17:25:50</tr>
+                                <tr>
+                                    <td>臺南市</td>
+                                    <td>14:49:20</td>
+                                    <td>-</td>
+                                    <td>16:14:27</td>
+                                    <td>-</td>
+                                    <td>17:26:16</td>
+                                </tr>
+                                <tr>
+                                    <td>高雄市</td>
+                                    <td>14:49:59</td>
+                                    <td>-</td>
+                                    <td>16:15:00</td>
+                                    <td>-</td>
+                                    <td>17:26:41</td>
+                                </tr>
+                                <tr>
+                                    <td>屏東縣</td>
+                                    <td>14:50:11</td>
+                                    <td>-</td>
+                                    <td>16:15:02</td>
+                                    <td>-</td>
+                                    <td>17:26:37</td>
+                                </tr>
+                                <tr>
+                                    <td>基隆市</td>
+                                    <td>14:50:18</td>
+                                    <td>-</td>
+                                    <td>16:13:34</td>
+                                    <td>-</td>
+                                    <td>17:24:21</td>
+                                </tr>
+                                <tr>
+                                    <td>宜蘭縣</td>
+                                    <td>14:50:39</td>
+                                    <td>-</td>
+                                    <td>16:13:59</td>
+                                    <td>-</td>
+                                    <td>17:24:46</td>
+                                </tr>
+                                <tr>
+                                    <td>花蓮縣</td>
+                                    <td>14:51:05</td>
+                                    <td>-</td>
+                                    <td>16:14:42</td>
+                                    <td>-</td>
+                                    <td>17:25:35</td>
+                                </tr>
+                                <tr>
+                                    <td>臺東縣</td>
+                                    <td>14:51:24</td>
+                                    <td>-</td>
+                                    <td>16:15:35</td>
+                                    <td>-</td>
+                                    <td>17:26:43</td>
+                                </tr>
+                                <tr>
+                                    <td>澎湖縣</td>
+                                    <td>14:47:30</td>
+                                    <td>-</td>
+                                    <td>16:13:14</td>
+                                    <td>-</td>
+                                    <td>17:25:33</td>
+                                </tr>
+                                <tr>
+                                    <td>金門縣</td>
+                                    <td>14:44:04</td>
+                                    <td>16:10:35</td>
+                                    <td>16:11:01</td>
+                                    <td>16:11:29</td>
+                                    <td>17:24:20</tr>
+                                <tr>
+                                    <td>連江縣</td>
+                                    <td>14:45:54</td>
+                                    <td>-</td>
+                                    <td>16:10:45</td>
+                                    <td>-</td>
+                                    <td>17:22:49</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Bootstrap Multiselect JavaScript-->
-    <script type="text/javascript" src="js/bootstrap-multiselect.js"></script> 
+    <script type="text/javascript" src="js/bootstrap-multiselect.min.js"></script> 
 
     <!-- Custom JavaScript-->
-    <script src="js/streamings.js"></script>
-    <script src="js/countdowns.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/streamings.min.js"></script>
+    <script src="js/countdowns.min.js"></script>
+    <script src="js/script.min.js"></script>
 
 </body>
-
 </html>
