@@ -1,5 +1,11 @@
 body {
     font-family: arial, 'Noto Sans', '微軟正黑體', sans-serif;
+    background-color: #f8f9fc;
+}
+
+nav > a {
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 li.disabled,
@@ -7,6 +13,22 @@ li.disabled > a,
 li.disabled > a > label,
 li.disabled > a > label > input {
     cursor: not-allowed;
+}
+
+footer {
+    background-color: #ecf3fc;
+    padding: 3rem 0;
+    bottom: 0;
+}
+
+footer .row img {
+    max-height: 60px;
+}
+
+footer .row .col-3 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .bg-black {
@@ -17,10 +39,53 @@ li.disabled > a > label > input {
     border: 1px solid #ced4da;
 }
 
+.btn-group {
+    width: 250px;
+}
+
 .multiselect-container > li:hover {
     background-color: #f5f5f5;
 }
 
 .multiselect-container > li > a > label {
     padding-left: 20px;
+}
+
+.google-map {
+    min-height: 720px;
+}
+
+.footer-title {
+    font-weight: bold;
+    color: #24292e;
+    letter-spacing: 1.5px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #24292e;
+    line-height: 0.1em;
+    margin-bottom: 2rem;
+    padding: 0 5rem;
+}
+
+.footer-title span { 
+    background:#ecf3fc;
+    padding:0 1.9rem 0 2rem;
+}
+
+@media (max-width: 768px) {
+    .btn-group {
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .google-map {
+        display: none;
+    }
+}
+
+@media (max-width: 1220px) {
+    .google-map {
+        min-height: 580px;
+    }
 }
