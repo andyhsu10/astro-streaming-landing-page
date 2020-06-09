@@ -124,7 +124,7 @@ function findStreaming(id) {
 function mobileStreamings() {
     ids = []
     $('.streaming-video').each(function(index, value) {
-        if (index > 1) {
+        if (index > 2) {
             $(this).remove();
             ids.push($(this)[0].id.split('_')[2]);
         }
