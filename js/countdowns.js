@@ -522,5 +522,5 @@ const countdowns = [
                 "display_name": "復圓"
             }
         ]
-    }
+    },
 ]

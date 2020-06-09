@@ -36,15 +36,31 @@
             2020 年夏至日環食網路聯播
         </a>
         <div class="event-countdown fluid-right">
-            <div class="btn-secondary form-group">
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>台北</option>
-                    <option>新竹</option>
-                    <option selected>嘉義</option>
-                    <option>台南</option>
-                    <option>高雄</option>
-                </select>
+            <div class="btn-secondary form-group mr-3" id="country_div">
+                <select class="form-control" id="country_selection"></select>
             </div>
+
+            <div id="countdown_div">
+                <div class="mr-2">
+                    距離<span id="event_name"></span><br><span id="event_time"></span>
+                </div>
+                <div id="event_days_div">
+                  <span id="event_days">00</span>
+                  <div class="smalltext">天</div>
+                </div>
+                <div id="event_hours_div">
+                  <span id="event_hours">00</span>
+                  <div class="smalltext">時</div>
+                </div>
+                <div id="event_minutes_div">
+                  <span id="event_minutes">00</span>
+                  <div class="smalltext">分</div>
+                </div>
+                <div id="event_seconds_div">
+                  <span id="event_seconds">00</span>
+                  <div class="smalltext">秒</div>
+                </div>
+              </div>
         </div>
     </nav>
 

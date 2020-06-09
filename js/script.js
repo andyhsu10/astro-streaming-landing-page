@@ -1,16 +1,41 @@
 var selectOptionNumber = 0;
+var countryData = undefined;
+var countdownEndtime = 0;
+var eventIndex = 0;
+var offset = 0;
+
 $(document).ready(function() {
     setSelectOptionNumber();
     setCountrySelection();
+    initializeClock();
+
     $(window).on('resize', function(){
         setSelectOptionNumber();
         adjustStreamingsHeight();
     });
 
+    $('#country_selection').on('change', function() {
+        countryData = findCountdown($(this).val());
+        currentTimestamp = getTimestamp();
+        countdownEndtime = 0;
+        for (var i = 0; i < countryData.events.length; i++) {
+            if (countryData.events[i].time > currentTimestamp) {
+                countdownEndtime = countryData.events[i].time;
+                eventIndex = i;
+                break;
+            }
+        }
+
+        if (countdownEndtime > getTimestamp()) {
+            console.log('initializeClock();')
+            initializeClock();
+        }
+    });
+
     $('#video_multiselect').multiselect({
         nonSelectedText: '請選擇至少一個頻道',
-        onChange: function(element, insert) {
-            id = element[0].value
+        onChange: function(item, insert) {
+            id = item[0].value
             if (insert) {
                 const streaming = findStreaming(id);
                 appendStreaming(streaming);
@@ -89,7 +114,7 @@ function removeStreaming(id) {
 }
 
 function findStreaming(id) {
-    return streamings.find(element => element.id == id);
+    return streamings.find(item => item.id == id);
 }
 
 function mobileStreamings() {
@@ -150,4 +175,89 @@ function getCountdownOptions() {
             default: item.default,
         }
     })
+}
+
+function findCountdown(val) {
+    return countdowns.find(item => item.name == val);
+}
+
+function getTimestamp() {
+    return parseInt(Date.now() / 1000) + offset
+}
+
+function getTimeRemaining(endtime) {
+    tmp_total = endtime - getTimestamp();
+    const total = tmp_total <= 0 ? 0 : parseInt(tmp_total)
+    const seconds = Math.floor(total % 60);
+    const minutes = Math.floor((total / 60) % 60);
+    const hours = Math.floor((total / (60 * 60)) % 24);
+    const days = Math.floor(total / (60 * 60 * 24));
+    
+    return {
+        total,
+        days,
+        hours,
+        minutes,
+        seconds
+    };
+}
+  
+function initializeClock() {
+    countryData = findCountdown($('#country_selection').val());
+    currentTimestamp = getTimestamp();
+    countdownEndtime = 0;
+    for (var i = 0; i < countryData.events.length; i++) {
+        if (countryData.events[i].time > currentTimestamp) {
+            countdownEndtime = countryData.events[i].time;
+            eventIndex = i;
+            $('#event_name').text(countryData.events[i].display_name);
+            $('#event_time').text('(' + toTimeFormat(countdownEndtime) + ')')
+            break;
+        }
+    }
+    const daysSpan = $('#event_days');
+    const hoursSpan = $('#event_hours');
+    const minutesSpan = $('#event_minutes');
+    const secondsSpan = $('#event_seconds');
+  
+    function updateClock() {
+        const t = getTimeRemaining(countdownEndtime);
+  
+        $('#event_name').text(countryData.events[eventIndex].display_name);
+        $('#event_time').text('(' + toTimeFormat(countdownEndtime) + ')')
+        daysSpan.text(t.days < 10 ? ('0' + t.days).slice(-2) : t.days);
+        hoursSpan.text(('0' + t.hours).slice(-2));
+        minutesSpan.text(('0' + t.minutes).slice(-2));
+        secondsSpan.text(('0' + t.seconds).slice(-2));
+
+        if ((t.days + t.hours + t.minutes + t.seconds) === 0 ) {
+            $('#event_days_div').removeClass('hide');
+        } else if (t.days === 0) {
+            $('#event_days_div').addClass('hide');
+        }
+  
+        if (t.total <= 0) {
+            if (eventIndex < countryData.events.length - 1) {
+                eventIndex += 1
+                countdownEndtime = countryData.events[eventIndex].time;
+            } else {
+                clearInterval(timeinterval);
+            }
+        }
+    }
+  
+    updateClock();
+    const timeinterval = setInterval(updateClock, 1000);
+}
+
+function toTimeFormat(unixTime) {
+    date = new Date(unixTime * 1000);
+    year = date.getYear() + 1900;
+    month = '0' + (date.getMonth() + 1);
+    day = '0' + date.getDate();
+    hour = '0' + date.getHours();
+    minute = '0' + date.getMinutes();
+    second = '0' + date.getSeconds();
+
+    return year + '-' + month.substr(-2) + '-' + day.substr(-2) + ' ' + hour.substr(-2) + ':' + minute.substr(-2) + ':' + second.substr(-2);
 }
