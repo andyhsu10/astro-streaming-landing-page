@@ -1,4 +1,4 @@
-streamings = [
+const streamings = [
     {
         "id": 1,
         "location_name": "中央氣象局2019年12月26日日食直播",

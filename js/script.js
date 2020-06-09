@@ -1,6 +1,7 @@
 var selectOptionNumber = 0;
 $(document).ready(function() {
     setSelectOptionNumber();
+    setCountrySelection();
     $(window).on('resize', function(){
         setSelectOptionNumber();
         adjustStreamingsHeight();
@@ -132,4 +133,21 @@ function adjustStreamingsHeight() {
     $('.streaming-video').each(function() {
         $(this).height($(this).width() / 16 * 9);
     });
+}
+
+function setCountrySelection() {
+    selections = getCountdownOptions();
+    for (var i = 0; i < selections.length; i++) {
+        $('#country_selection').append('<option value="' + selections[i].value + '"' + (selections[i].default ? ' selected' : '') + '>' + selections[i].name + '</option>')
+    }
+}
+
+function getCountdownOptions() {
+    return countdowns.map(function(item){
+        return {
+            name: item.display_name,
+            value: item.name,
+            default: item.default,
+        }
+    })
 }
