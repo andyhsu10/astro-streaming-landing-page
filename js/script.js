@@ -109,7 +109,7 @@ function getStreamingOptions(streamings) {
 }
 
 function appendStreaming(streaming) {
-    $('#streaming_list').append('<div class="col-lg-4 col-md-6 streaming-video mb-4" id="streaming_video_'+streaming.id+'"><iframe id="player" width=100% height=100% src="https://www.youtube.com/embed/'+streaming.youtube_id+'?autoplay=0&mute=1&info=0&controls=0" frameborder="0"></iframe></div>');
+    $('#streaming_list').append('<div class="col-lg-4 col-md-6 streaming-video mb-4" id="streaming_video_'+streaming.id+'"><iframe id="player" width=100% height=100% src="https://www.youtube.com/embed/'+streaming.youtube_id+'?autoplay=1&mute=1&info=0&controls=0" frameborder="0"></iframe></div>');
     adjustStreamingsHeight();
 }
 
