@@ -19,6 +19,10 @@ table th, table td {
     text-align: center;
 }
 
+table td {
+    vertical-align: middle !important;
+}
+
 footer {
     background-color: #ecf3fc;
     padding: 3rem 0;
@@ -87,6 +91,10 @@ footer .credit {
 
 .countdown-time {
     font-family: 'consolas', 'courier';
+}
+
+.modal-body p {
+    margin-bottom: 0.2rem;
 }
 
 #country_div {

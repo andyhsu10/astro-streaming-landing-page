@@ -210,7 +210,7 @@ const countdowns = [
             {
                 "time": 1592727235,
                 "name": "second_contact",
-                "display_name": "食既"
+                "display_name": "環食始"
             },
             {
                 "time": 1592727246,
@@ -220,7 +220,7 @@ const countdowns = [
             {
                 "time": 1592727260,
                 "name": "third_contact",
-                "display_name": "生光"
+                "display_name": "環食終"
             },
             {
                 "time": 1592731544,
@@ -242,7 +242,7 @@ const countdowns = [
             {
                 "time": 1592727218,
                 "name": "second_contact",
-                "display_name": "食既"
+                "display_name": "環食始"
             },
             {
                 "time": 1592727243,
@@ -252,7 +252,7 @@ const countdowns = [
             {
                 "time": 1592727270,
                 "name": "third_contact",
-                "display_name": "生光"
+                "display_name": "環食終"
             },
             {
                 "time": 1592731551,
@@ -274,7 +274,7 @@ const countdowns = [
             {
                 "time": 1592727220,
                 "name": "second_contact",
-                "display_name": "食既"
+                "display_name": "環食始"
             },
             {
                 "time": 1592727248,
@@ -284,7 +284,7 @@ const countdowns = [
             {
                 "time": 1592727278,
                 "name": "third_contact",
-                "display_name": "生光"
+                "display_name": "環食終"
             },
             {
                 "time": 1592731550,
@@ -482,7 +482,7 @@ const countdowns = [
             {
                 "time": 1592727035,
                 "name": "second_contact",
-                "display_name": "食既"
+                "display_name": "環食始"
             },
             {
                 "time": 1592727061,
@@ -492,7 +492,7 @@ const countdowns = [
             {
                 "time": 1592727089,
                 "name": "third_contact",
-                "display_name": "生光"
+                "display_name": "環食終"
             },
             {
                 "time": 1592731460,
