@@ -2,7 +2,6 @@ var selectOptionNumber = 0;
 var countryData = undefined;
 var countdownEndtime = 0;
 var eventIndex = 0;
-var offset = 0;
 
 $(document).ready(function() {
     setSelectOptionNumber();
@@ -186,7 +185,7 @@ function findCountdown(val) {
 }
 
 function getTimestamp() {
-    return parseInt(Date.now() / 1000) + offset
+    return parseInt(Date.now() / 1000)
 }
 
 function getTimeRemaining(endtime) {
