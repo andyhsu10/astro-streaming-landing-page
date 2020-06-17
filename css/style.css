@@ -73,15 +73,9 @@ footer .credit {
     color: #24292e;
     letter-spacing: 1.5px;
     width: 100%;
-    text-align: center;
-    border-bottom: 2px solid #24292e;
     line-height: 0.1em;
-    margin-bottom: 2rem;
-}
-
-.footer-title span { 
-    background:#ecf3fc;
-    padding:0 1.9rem 0 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1.2rem;
 }
 
 .event-countdown {
