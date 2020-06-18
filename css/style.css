@@ -75,7 +75,7 @@ footer .credit {
     width: 100%;
     line-height: 0.1em;
     margin-top: 2rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.4rem;
 }
 
 .event-countdown {
@@ -89,6 +89,22 @@ footer .credit {
 
 .modal-body p {
     margin-bottom: 0.2rem;
+}
+
+.design-title {
+    text-align: right;
+}
+
+.cooperation-logo {
+    margin-left: 0 !important;
+}
+
+.design-logo {
+    margin-right: 0 !important;
+}
+
+.design-text {
+    text-align: right;
 }
 
 #country_div {
@@ -131,6 +147,31 @@ footer .credit {
 
 #event_time {
     font-size: 0.8rem !important;
+}
+
+@media (max-width: 576px) {
+    .design-logo {
+        margin-right: auto !important;
+        margin-left: 0 !important;
+    }
+    
+    .design-title, .design-text {
+        text-align: left;
+    }
+
+    .design-title {
+        margin-top: 2.8rem;
+    }
+
+    .design-text {
+        margin-top: 1rem !important;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 576px) {
+    .design-text {
+        margin-top: 0 !important;
+    }
 }
 
 @media (max-width: 768px) {
