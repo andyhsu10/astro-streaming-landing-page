@@ -4,7 +4,7 @@ var countdownEndtime = 0;
 var eventIndex = 0;
 
 $(document).ready(function() {
-    setSelectOptionNumber();
+    setSelectOptionNumber(true);
     setCountrySelection();
     initializeClock();
 
@@ -33,6 +33,7 @@ $(document).ready(function() {
 
     $('#video_multiselect').multiselect({
         nonSelectedText: '請選擇至少一個頻道',
+        enableHTML: true,
         onChange: function(item, insert) {
             id = item[0].value
             if (insert) {
@@ -46,23 +47,11 @@ $(document).ready(function() {
         buttonText: function(options, select) {
             if (options.length === 0) {
                 return '請選擇至少一個頻道';
-            } else if (options.length > 3) {
-                return '已選擇 ' + options.length + ' 個頻道';
+            } else if (options.length == selectOptionNumber) {
+                return '<span class="text-danger font-weight-bold">上限選擇 ' + options.length + ' 個頻道</span>';
             } else {
-                var labels = [];
-                options.each(function() {
-                    if ($(this).attr('label') !== undefined) {
-                        labels.push($(this).attr('label'));
-                    } else {
-                        labels.push($(this).html());
-                    }
-                });
-                label_str = labels.join(', ') + '';
-                if (label_str.length > 15) {
-                    return label_str.slice(0, 15) + ' ......'
-                }
-                return label_str
-             }
+                return '已選擇 ' + options.length + ' 個頻道';
+            }
         }
     });
 
@@ -77,15 +66,18 @@ $(document).ready(function() {
     adjustStreamingsHeight();
 });
 
-function setSelectOptionNumber() {
+function setSelectOptionNumber(init) {
     if ($(window).width() >= 768) {
-        selectOptionNumber = 9
+        selectOptionNumber = 9;
+        if (!init)
+            $('#video_multiselect').multiselect('updateButtonText');
     } else {
         // switch mobile screen
         if (selectOptionNumber == 9) {
-            mobileStreamings()
+            selectOptionNumber = 3;
+            mobileStreamings();
         }
-        selectOptionNumber = 3
+        selectOptionNumber = 3;
     }
     disableOptions();
 }
@@ -123,7 +115,7 @@ function findStreaming(id) {
 function mobileStreamings() {
     ids = []
     $('.streaming-video').each(function(index, value) {
-        if (index > 2) {
+        if (index >= selectOptionNumber) {
             $(this).remove();
             ids.push($(this)[0].id.split('_')[2]);
         }
