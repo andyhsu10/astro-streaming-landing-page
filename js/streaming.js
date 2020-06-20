@@ -86,7 +86,7 @@ const streamings = [
     {
         "id": 13,
         "location_name": "日環食金門縣金城國中天文台",
-        "selected": false,
+        "selected": true,
         "url": "https://youtu.be/9u42gWcMKls",
         "youtube_id": "9u42gWcMKls"
     },
@@ -156,7 +156,7 @@ const streamings = [
     {
         "id": 23,
         "location_name": "[VR360] 2020 台灣日環食 In 嘉義縣新港鄉咬仔竹",
-        "selected": false,
+        "selected": true,
         "url": "https://youtu.be/aljmCUbxskE",
         "youtube_id": "aljmCUbxskE"
     }
